@@ -1,0 +1,184 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Assignment JS 11</title>
+      <style>
+        body{
+          background: linear-gradient(#222831, #222831);
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 100vh;
+        }
+        section{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 10rem;
+          color: #fff;
+          
+        }
+        
+        #secbox {
+          width: 500px;
+          margin-top: 2rem;
+          height: 40px;
+          /* border: 2px solid black; */
+          text-align: center;
+        }
+        #minibox {
+          /* display: flex; */
+          justify-content: space-between;
+          flex-direction: column;
+          /* padding: 20px; */
+          /* margin: 50%; */
+        }
+        .input1{
+          width: 400px;
+          height: 30px;
+          margin-right: 15px;
+        }
+
+        .input1:focus{
+          box-shadow: 0px 0px 10px 5px rgb(195, 18, 235);
+        }
+        .mainlist{
+          font-size: 30px;
+          color: white;
+          margin: 1rem 0rem;
+          background: linear-gradient(to left,rgb(228, 186, 237), rgb(188, 48, 160));
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+        li{
+          width: 500px;
+          height: 40px;
+          list-style-type: none;
+          background: linear-gradient(rgb(195, 18, 235), rgb(100, 5, 81));
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 20px;
+          margin: 1rem 0rem;
+          color: white;
+        }
+        .mainbtn{
+          padding: 10px 18px;
+          font-size: 15px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          color: #fff;
+          background-color: #ae05f6;
+           border: none;
+          border-radius: 15px;
+          box-shadow: 0 9px  rgb(195, 97, 218);
+        }
+        .mainbtn:hover {
+          background-color: rgb(18, 235, 127)
+        }
+
+        .mainbtn:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #ae05f6;
+          transform: translateY(4px);
+          }
+        .btn2{
+          background-color: none;
+          border: none;
+          background: transparent;
+          color: white;
+          font-size: 20px;
+        }
+      </style>
+    </head>
+    <body>
+      <!-- <section>
+          <div>
+              <input type="text"> 
+              <button>Add To Note</button>
+          </div>
+          
+          <div style="width: 200px; height: 40px; border: 2px solid black; display: flex;">
+              <div style="width: 200px; height: 40px; border: 2px solid black; display: flex; justify-content: space-between;">
+                  <p>This is Wasim</p>
+                  <button>X</button>
+              </div>
+              
+          </div>
+      </section> -->
+
+      <section>
+        <div id="mainbox"></div>
+        <div id="secbox">
+          <div id="minibox">
+            
+          </div>
+        </div>
+      </section>
+
+      <script>
+          var mainbox = document.querySelector("#mainbox");
+          var secbox = document.querySelector("#secbox");
+          var minibox = document.querySelector("#minibox"); 
+
+          var inp1 = document.createElement("input");
+          inp1.className = "input1";
+          var btn = document.createElement("button");
+          btn.className = "mainbtn"
+          btn.innerHTML = "Add To Note";
+          var list = document.createElement("p");
+          list.className = "mainlist"
+          list.innerHTML = "Your Cars is Empty";
+          mainbox.appendChild(inp1);
+          mainbox.appendChild(btn);
+          secbox.appendChild(list)
+
+          btn.addEventListener("click", mainbtn)
+          function mainbtn(){
+            var input = document.querySelector("input").value;
+            if(input == ""){
+              list.innerHTML += "<br> " + "Enter Your List Name"
+
+            }else{
+              var input = document.querySelector("input").value;
+              list.style.display = "none"
+            // console.log(input)
+            var list2 = document.createElement("li")
+            list2.className = "List22"
+            list2.innerHTML = input
+            var btn2 = document.createElement("button")
+            btn2.className = "btn2"
+            var btnclose = document.createTextNode("X")
+            minibox.appendChild(list2)
+            list2.appendChild(btn2)
+            btn2.appendChild(btnclose)
+            console.log(btn2)
+            
+            btn2.addEventListener("click", closelist)
+            
+            function closelist(){
+              // list2.style.display = "none"
+            list2.remove();
+            if (minibox.querySelectorAll("li").length === 0) {
+            list.style.display = "block";
+            }
+              }
+            }
+            }
+            
+            
+          
+
+
+
+
+
+
+      </script>
+    </body>
+  </html>
